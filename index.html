@@ -56,10 +56,13 @@
     </script>
 
     <style>
-    .input1 {
+    .inputs {
         position: fixed;
         top: 0;
         left: 0;
+        display: grid;
+    }
+    .inputs > input {
         margin: 1em;
     }
     </style>
@@ -102,14 +105,20 @@
             <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
             <a-sky color="#ECECEC"></a-sky>
         
-            <a-text class="text1" :value="message" position="-1 3 -3" color="black"></a-text>
+            <a-text class="text1" :value="input1" position="-1 3 -3" color="black"></a-text>
+            <a-text class="text2" :value="input2" position="-1 2.5 -3" color="black"></a-text>
+            <a-text class="text3" :value="input3" position="-1 2 -3" color="black"></a-text>
         
         </a-scene>
     
 
         <!-- vue markup -->
-        <input v-model="message" type="text" class="input1"  placeholder="words go here!">
-            
+        <div class="inputs">
+            <input v-model="input1" type="text" placeholder="words go here!">
+            <input v-model="input2" type="text" placeholder="words go here!">
+            <input v-model="input3" type="text" placeholder="words go here!">
+        </div>
+  
     </div>
 
 
@@ -118,7 +127,9 @@
     var app = new Vue({
         el: '#app',
         data: {
-            message: 'Hello Vue!'
+            input1: 'wordy1',
+            input2: 'wordy2',
+            input3: 'wordy3',
         }
     })
 
